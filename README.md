@@ -109,6 +109,42 @@ factoura_app/
 - PostgreSQL (v12 or higher)
 - Git
 - Python 3.9+ (for content analysis)
+- Cryptocurrency Wallet (MetaMask recommended)
+
+### Authentication & Wallet Requirements
+factoura. uses a two-tier authentication system:
+
+1. **Basic Authentication (Username/Password)**
+   - Required for accessing the platform
+   - Allows read-only features and basic interactions
+   - Managed through JWT tokens
+
+2. **Blockchain Authentication (MetaMask)**
+   - Required for article submission and verification
+   - Necessary for all blockchain interactions
+   - Connected through the dashboard interface
+   - Displays wallet address and MATIC balance
+
+#### Setting Up Your Wallet
+1. Install MetaMask browser extension from the Chrome Web Store or Firefox Add-ons
+2. Create a new wallet or import an existing one
+3. Switch to the Polygon PoS network in MetaMask settings
+4. Add some MATIC tokens to your wallet (you can get test MATIC from the Polygon faucet if you're testing)
+
+#### Wallet Connection UI
+The wallet connection interface is located in the dashboard sidebar under the BLOCKCHAIN section. It provides:
+- A prominent "Connect MetaMask" button when not connected
+- Visual indicators of connection status
+- Wallet address display (truncated for privacy)
+- Current MATIC balance
+- Network status indicator
+- Disconnect option
+
+#### Versioning System
+Factoura uses GitHub tag-based versioning:
+- The current version is displayed at the bottom of the dashboard sidebar
+- Version numbers follow semantic versioning (e.g., v1.0.4)
+- Version is automatically updated via the `backend/scripts/update-version.sh` script when new tags are created
 
 ### Clone the Repository
 ```bash
@@ -397,13 +433,32 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   - [ ] Real-time content analysis (gemma3)
 
 ### Core Infrastructure (Priority 2)
-- [ ] **Service Integration**
-  - [ ] Complete Python service integration with backend
-    - [ ] Set up FastAPI service endpoints
-    - [ ] Implement proper error handling
-    - [ ] Add service health monitoring
-    - [ ] Set up proper logging system
-    - [ ] Implement service recovery mechanisms
+- [x] **Authentication System**
+  - [x] Basic Authentication
+    - [x] Username/password login system
+    - [x] User registration and profile management
+    - [x] Session management
+    - [x] Password reset functionality
+    - [x] Email verification
+  - [ ] Blockchain Authentication
+    - [x] Wallet connection check
+    - [x] Network verification (Polygon PoS)
+    - [x] MATIC balance check
+    - [x] Transaction signing
+    - [x] Error handling for blockchain operations
+    - [x] Connection status UI
+    - [x] Network switcher
+    - [x] Balance display
+    - [x] Transaction history
+
+### Core Infrastructure (Priority 2)
+- [x] **Service Integration**
+  - [x] Complete Python service integration with backend
+    - [x] Set up FastAPI service endpoints
+    - [x] Implement proper error handling
+    - [x] Add service health monitoring
+    - [x] Set up proper logging system
+    - [x] Implement service recovery mechanisms
   - [ ] Integrate Ollama AI service
     - [ ] Set up model endpoints
     - [ ] Implement error handling
@@ -415,28 +470,28 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
     - [ ] Implement retry mechanisms
     - [ ] Add circuit breakers
 
-- [ ] **Database & Schema**
-  - [ ] Complete Prisma schema implementation
-    - [ ] Define article schema
-    - [ ] Create user management schema
-    - [ ] Add content analysis schema
-    - [ ] Implement AI interaction schema
-  - [ ] Add database migrations
-    - [ ] Create initial migration
-    - [ ] Add data seeding
-    - [ ] Implement rollback procedures
-  - [ ] Implement data validation
-    - [ ] Add input validation
-    - [ ] Create data sanitization
-    - [ ] Implement type checking
-  - [ ] Add database backup system
-    - [ ] Set up automated backups
-    - [ ] Implement restore procedures
-    - [ ] Add backup monitoring
-  - [ ] Set up database monitoring
-    - [ ] Add performance tracking
-    - [ ] Implement query optimization
-    - [ ] Create alert system
+- [x] **Database & Schema**
+  - [x] Complete Prisma schema implementation
+    - [x] Define article schema
+    - [x] Create user management schema
+    - [x] Add content analysis schema
+    - [x] Implement AI interaction schema
+  - [x] Add database migrations
+    - [x] Create initial migration
+    - [x] Add data seeding
+    - [x] Implement rollback procedures
+  - [x] Implement data validation
+    - [x] Add input validation
+    - [x] Create data sanitization
+    - [x] Implement type checking
+  - [x] Add database backup system
+    - [x] Set up automated backups
+    - [x] Implement restore procedures
+    - [x] Add backup monitoring
+  - [x] Set up database monitoring
+    - [x] Add performance tracking
+    - [x] Implement query optimization
+    - [x] Create alert system
 
 ### Frontend Development (Priority 3)
 - [ ] **UI Components**

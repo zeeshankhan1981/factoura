@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard';
 import ArticleDetail from './pages/articleDetail';
 import Home from './pages/home';
 import Profile from './pages/profile';
+import { WalletProvider } from './contexts/WalletContext';
 
 // Wrapper component to conditionally render Navbar
 const AppContent = () => {
@@ -41,7 +42,9 @@ const App = () => {
 
   return (
     <Router>
-      <AppContent />
+      <WalletProvider>
+        <AppContent />
+      </WalletProvider>
     </Router>
   );
 };

@@ -175,7 +175,7 @@ const Profile = () => {
               </li>
             </ul>
             <div className="mt-8 text-center text-gray-400 text-xs">
-              v1.0.3
+              v1.0.4
             </div>
           </div>
           

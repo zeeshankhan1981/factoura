@@ -39,8 +39,16 @@ router.get('/', async (req, res) => {
 // Create a new article
 router.post('/', verifyToken, async (req, res) => {
     try {
-        const { title, content } = req.body;
+        const { title, content, signature, walletAddress } = req.body;
         const authorId = req.user.id;
+
+        // Verify wallet signature
+        const message = `Submitting article: "${title}" to factoura.\n\nTimestamp: ${new Date().toISOString()}`;
+        const isSignatureValid = await blockchainService.verifySignature(message, signature, walletAddress);
+        
+        if (!isSignatureValid) {
+            return res.status(401).json({ error: 'Invalid wallet signature' });
+        }
 
         // Create article first
         const article = await databaseService.prisma.article.create({
@@ -48,6 +56,8 @@ router.post('/', verifyToken, async (req, res) => {
                 title,
                 content,
                 authorId,
+                walletAddress,
+                signature,
                 analysisStatus: 'pending'
             },
             include: {

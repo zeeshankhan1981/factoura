@@ -22,28 +22,20 @@ const Navbar = () => {
         <div className="text-2xl font-bold text-primary-dark">
           <Link to="/" className="hover:text-primary-darker transition-colors duration-200">factoura</Link>
         </div>
-        <ul className="flex space-x-8">
-          <li>
-            <Link to="/" className="text-gray-700 hover:text-primary-dark transition-colors duration-200 font-medium">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/signup" className="text-gray-700 hover:text-primary-dark transition-colors duration-200 font-medium">
-              Sign Up
-            </Link>
-          </li>
-          <li>
-            <Link to="/login" className="text-gray-700 hover:text-primary-dark transition-colors duration-200 font-medium">
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard" className="bg-primary-dark hover:bg-primary-darker text-white px-4 py-2 rounded-md transition-colors duration-200">
-              Dashboard
-            </Link>
-          </li>
-        </ul>
+        <div className="flex items-center space-x-4">
+          <Link to="/" className="text-gray-700 hover:text-primary-dark transition-colors duration-200 font-medium">
+            Home
+          </Link>
+          <Link to="/signup" className="text-gray-700 hover:text-primary-dark transition-colors duration-200 font-medium">
+            Sign Up
+          </Link>
+          <Link to="/login" className="text-gray-700 hover:text-primary-dark transition-colors duration-200 font-medium">
+            Login
+          </Link>
+          <Link to="/dashboard" className="bg-primary-dark hover:bg-primary-darker text-white px-4 py-2 rounded-md transition-colors duration-200">
+            Dashboard
+          </Link>
+        </div>
       </div>
     </nav>
   );

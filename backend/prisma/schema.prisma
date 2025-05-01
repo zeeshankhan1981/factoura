@@ -15,18 +15,21 @@ model Article {
   User        User     @relation(fields: [authorId], references: [id])
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  
-  // Content Analysis Fields
-  sentimentScore     Float?
-  emotionalTone      String?
-  objectivityScore   Float?
-  tags              Tag[]
-  analysisStatus    String   @default("pending") // pending, analyzing, completed, failed
+  publishedAt DateTime?
+  status      String   @default("draft")
+  tags        Tag[]
+  analysisStatus String @default("pending")
+  sentimentScore Float?
+  emotionalTone String?
   analysisUpdatedAt DateTime?
+  walletAddress String?
+  signature   String?
+  verificationStatus String @default("pending")
+  transactionHash String?
+  blockNumber Int?
+  contentHash String?
+  verifiedAt  DateTime?
   
-  // Blockchain verification fields
-  verificationStatus String?  @default("pending") // pending, verified, failed
-  transactionHash   String?
   blockNumber      Int?
   contentHash      String?
   verifiedAt       DateTime?

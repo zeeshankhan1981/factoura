@@ -148,10 +148,30 @@ class BlockchainService {
     }
   }
   
+  async verifySignature(message, signature, walletAddress) {
+    try {
+      if (isDevelopment || !this.provider) {
+        // In development mode, simulate signature verification
+        return true;
+      }
+
+      if (!this.isInitialized) {
+        await this.init();
+      }
+
+      // Verify the signature using ethers
+      const recoveredAddress = await ethers.verifyMessage(message, signature);
+      return recoveredAddress.toLowerCase() === walletAddress.toLowerCase();
+    } catch (error) {
+      console.error('Error verifying signature:', error);
+      return false;
+    }
+  }
+
   generateContentHash(content) {
     return '0x' + crypto.createHash('sha256').update(content).digest('hex');
   }
-  
+
   getExplorerUrl(txHash) {
     if (!txHash) return null;
     

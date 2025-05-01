@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import ArticleForm from '../components/ArticleForm';
+import WalletConnection from '../components/WalletConnection';
 
 const Dashboard = () => {
   const [articles, setArticles] = useState([]);
@@ -375,7 +376,7 @@ const Dashboard = () => {
           <h1 className="text-2xl font-bold mb-8">factoura.</h1>
           
           <div className="mb-8">
-            <h2 className="text-sm uppercase text-gray-400 mb-4">Navigation</h2>
+            <h2 className="text-sm uppercase text-gray-400 mb-4">NAVIGATION</h2>
             <ul className="space-y-2">
               <li>
                 <button 
@@ -411,7 +412,7 @@ const Dashboard = () => {
                     : 'hover:bg-primary-dark transition-colors duration-200'}`}
                 >
                   <svg className="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                   </svg>
                   Collaborate
                 </button>
@@ -424,7 +425,7 @@ const Dashboard = () => {
                     : 'hover:bg-primary-dark transition-colors duration-200'}`}
                 >
                   <svg className="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                   </svg>
                   Blockchain
                 </button>
@@ -443,6 +444,17 @@ const Dashboard = () => {
             </ul>
           </div>
           
+          {/* Blockchain Section */}
+          <div className="mb-8">
+            <h2 className="text-sm uppercase text-gray-400 mb-4">BLOCKCHAIN</h2>
+            <div className="px-4">
+              <WalletConnection />
+              <div className="mt-2 text-xs text-gray-400">
+                MetaMask wallet required for article submission and verification
+              </div>
+            </div>
+          </div>
+          
           <div className="border-t border-primary-dark pt-6">
             <div className="mb-6">
               <h3 className="font-medium mb-1">{user.username}</h3>
@@ -450,17 +462,26 @@ const Dashboard = () => {
             </div>
             <button 
               onClick={handleLogout}
-              className="w-full px-4 py-2 border border-white text-white rounded-md hover:bg-white hover:text-primary-darker transition-colors duration-200"
+              className="w-full px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200 flex items-center justify-center"
             >
+              <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+              </svg>
               Logout
             </button>
+            <div className="mt-4 text-center text-xs text-gray-500">
+              v1.0.4
+            </div>
           </div>
         </div>
       </div>
       
       {/* Main Content */}
-      <div className="ml-64 flex-1 p-8">
-        <div className="max-w-5xl mx-auto">
+      <div className="ml-64 flex-1">
+        <div className="max-w-5xl mx-auto p-8">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
+          </div>
           {renderTabContent()}
         </div>
       </div>
