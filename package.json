@@ -1,0 +1,30 @@
+{
+  "name": "factoura-app",
+  "version": "1.0.0",
+  "description": "factoura. - Crowdsourced Digital Journalism on the Blockchain",
+  "main": "index.js",
+  "scripts": {
+    "start": "./start-services.sh",
+    "frontend:build": "cd frontend && npm run build",
+    "backend:start": "cd backend && npm start",
+    "python:start": "cd python_services/content_analysis && python3 -m uvicorn app:app --host 0.0.0.0 --port 5002"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeeshankhan1981/factoura_app.git"
+  },
+  "keywords": [
+    "journalism",
+    "blockchain",
+    "crowdsourced",
+    "digital",
+    "polygon"
+  ],
+  "author": "Zeeshan Khan",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2025 factoura.",
+  "bugs": {
+    "url": "https://github.com/zeeshankhan1981/factoura_app/issues"
+  },
+  "homepage": "https://github.com/zeeshankhan1981/factoura_app#readme"
+}

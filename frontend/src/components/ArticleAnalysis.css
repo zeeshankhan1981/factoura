@@ -1,0 +1,254 @@
+.article-analysis {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.analysis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.analysis-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.analyze-button {
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.analyze-button:hover {
+  background-color: #3a5ce5;
+}
+
+.analyze-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.analysis-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1.5rem;
+}
+
+.analysis-tabs button {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.analysis-tabs button:hover {
+  color: #4a6cf7;
+}
+
+.analysis-tabs button.active {
+  color: #4a6cf7;
+  border-bottom: 2px solid #4a6cf7;
+  font-weight: 500;
+}
+
+.analysis-content {
+  min-height: 200px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #666;
+}
+
+.error-message {
+  color: #f44336;
+  padding: 1rem;
+  background-color: #ffebee;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+/* Sentiment Analysis Styles */
+.sentiment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sentiment-indicator {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+}
+
+.sentiment-indicator h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.sentiment-indicator.positive h3 {
+  color: #4caf50;
+}
+
+.sentiment-indicator.negative h3 {
+  color: #f44336;
+}
+
+.sentiment-indicator.neutral h3 {
+  color: #9e9e9e;
+}
+
+.score-meter {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.sentiment-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.sentiment-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.sentiment-stat span:first-child {
+  color: #666;
+}
+
+.sentiment-stat span:last-child {
+  font-weight: 500;
+  color: #333;
+}
+
+.key-sentences {
+  margin-top: 1rem;
+}
+
+.key-sentences h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.key-sentences ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.key-sentences li {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  border-left: 4px solid #9e9e9e;
+}
+
+.key-sentences li.positive {
+  border-left-color: #4caf50;
+}
+
+.key-sentences li.negative {
+  border-left-color: #f44336;
+}
+
+/* Tag Suggestions Styles */
+.tags-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tag-section {
+  margin-bottom: 1rem;
+}
+
+.tag-section h4 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-item {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag-item.entity {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.tag-item.keyword {
+  background-color: #ede7f6;
+  color: #5e35b1;
+}
+
+.tag-item.entity.person {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.tag-item.entity.org {
+  background-color: #fff8e1;
+  color: #ffa000;
+}
+
+.tag-item.entity.gpe, .tag-item.entity.loc {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.tag-item small {
+  opacity: 0.7;
+  font-size: 0.8em;
+}

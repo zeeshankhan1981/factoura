@@ -1,0 +1,54 @@
+:root {
+  /* Primary colors */
+  --primary-lightest: #dbeafe;
+  --primary-lighter: #bfdbfe;
+  --primary-light: #93c5fd;
+  --primary: #60a5fa;
+  --primary-dark: #3b82f6;
+  --primary-darker: #2563eb;
+  --primary-darkest: #1e3a8a;
+  
+  /* Neutral colors */
+  --neutral-50: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-700: #374151;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
+  
+  /* Semantic colors */
+  --error: #dc2626;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  
+  /* Background colors */
+  --bg-gradient-start: var(--primary-lighter);
+  --bg-gradient-end: var(--primary-light);
+  --bg-white: #ffffff;
+  
+  /* Text colors */
+  --text-dark: var(--neutral-700);
+  --text-medium: var(--neutral-600);
+  --text-light: var(--neutral-500);
+  --text-white: #ffffff;
+  
+  /* Border colors */
+  --border-light: var(--neutral-200);
+  --border-medium: var(--neutral-300);
+  
+  /* Shadow colors */
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --shadow-color-hover: rgba(0, 0, 0, 0.1);
+  
+  /* Button colors */
+  --button-bg: var(--primary-light);
+  --button-text: var(--primary-darkest);
+  --button-bg-hover: var(--primary);
+  --button-text-hover: var(--text-white);
+  --button-disabled: var(--neutral-400);
+}

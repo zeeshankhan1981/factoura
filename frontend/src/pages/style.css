@@ -1,0 +1,397 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* factoura Login - Modern Split Screen Design
+   Using factoura- prefix to avoid conflicts with other styles */
+
+.factoura-login-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f5f7fa;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.factoura-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: #f5f7fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.factoura-logo-text {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    font-family: serif;
+    text-decoration: underline;
+}
+
+.factoura-tagline {
+    font-size: 1rem;
+    color: #000;
+    margin: 0;
+    font-weight: normal;
+    text-align: right;
+}
+
+.factoura-login-content {
+    display: flex;
+    margin: 2rem auto;
+    max-width: 1000px;
+    width: 90%;
+    height: 530px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Left section with brand info and features */
+.factoura-login-left {
+    flex: 1;
+    background: #5733ed;
+    color: white;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.factoura-platform-features {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.factoura-feature-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.factoura-feature-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.factoura-feature-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+/* Right section with login form */
+.factoura-login-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: #ffffff;
+}
+
+.factoura-login-form-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+}
+
+.factoura-login-header {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.factoura-login-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.factoura-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.factoura-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.factoura-form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.factoura-form-group input {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    background-color: #f9f9f9;
+}
+
+.factoura-form-group input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.factoura-form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.factoura-remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.factoura-remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+.factoura-remember-me label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.factoura-forgot-password {
+    color: #4f46e5;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.factoura-forgot-password:hover {
+    text-decoration: underline;
+}
+
+.factoura-error-message {
+    color: #ef4444;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+}
+
+.factoura-login-button {
+    padding: 0.75rem 1rem;
+    background: #5733ed;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 0.5rem;
+}
+
+.factoura-login-button:hover {
+    background: #4526c7;
+}
+
+.factoura-auth-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.factoura-auth-footer a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.factoura-auth-footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .factoura-login-content {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .factoura-login-left, 
+    .factoura-login-right {
+        padding: 2rem 1.5rem;
+    }
+    
+    .factoura-login-form-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+}
+
+.factoura-login-page .factoura-login-container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.factoura-login-page header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.factoura-login-page header .factoura-logo {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+}
+
+.factoura-login-page header p {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.factoura-login-page .factoura-login-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.factoura-login-page .factoura-login-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.factoura-login-page .factoura-login-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #4b5563;
+    background-color: #f9fafb;
+    transition: all 0.2s;
+}
+
+.factoura-login-page .factoura-login-form input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.factoura-login-page .factoura-login-form .btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #4f46e5;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 1rem;
+}
+
+.factoura-login-page .factoura-login-form .btn:hover {
+    background-color: #4338ca;
+}
+
+.factoura-login-page .error {
+    background-color: #fee2e2;
+    color: #ef4444;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.factoura-login-page .forgot-password,
+.factoura-login-page .signup-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.factoura-login-page .forgot-password a,
+.factoura-login-page .signup-link a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.factoura-login-page .forgot-password a:hover,
+.factoura-login-page .signup-link a:hover {
+    text-decoration: underline;
+}
+
+.factoura-login-page .info-container {
+    background-color: #4f46e5;
+    color: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.factoura-login-page .info-container p {
+    max-width: 300px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .factoura-login-page {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    
+    .factoura-login-page .info-container {
+        display: none; /* Hide info container on small screens */
+    }
+}

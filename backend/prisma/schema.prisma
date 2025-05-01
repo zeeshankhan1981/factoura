@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  authorId    Int
+  User        User     @relation(fields: [authorId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  // Blockchain verification fields
+  verificationStatus String?  @default("pending") // pending, verified, failed
+  transactionHash   String?
+  blockNumber      Int?
+  contentHash      String?
+  verifiedAt       DateTime?
+}
+
+model User {
+  username String    @unique
+  email    String    @unique
+  password String
+  id       Int       @id @default(autoincrement())
+  Article  Article[]
+}

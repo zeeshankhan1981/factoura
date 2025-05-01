@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=development
+      - CONTENT_ANALYSIS_SERVICE_URL=http://content-analysis:5002
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - content-analysis
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  content-analysis:
+    build: ./python_services/content_analysis
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./python_services/content_analysis:/app
