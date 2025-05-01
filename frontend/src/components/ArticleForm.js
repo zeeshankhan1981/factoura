@@ -186,31 +186,56 @@ const ArticleForm = ({ onArticleSubmitted }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-4">Submit a New Article</h2>
-      <div className="bg-blue-50 text-blue-700 p-4 rounded-md mb-6 text-sm">
-        Your stories will be verified on the Polygon blockchain for enhanced security and transparency.
+      <div className="flex items-center mb-4">
+        <div className="p-2 bg-primary-lighter rounded-full mr-3">
+          <svg className="h-6 w-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+          </svg>
+        </div>
+        <h2 className="text-xl font-bold text-gray-800">Submit a New Article</h2>
+      </div>
+      
+      <div className="bg-primary-lighter text-primary-dark p-4 rounded-md mb-6 text-sm flex items-start">
+        <svg className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span>Your stories will be verified on the Polygon blockchain for enhanced security and transparency.</span>
       </div>
       
       {status === 'idle' ? (
         <form className="space-y-6" onSubmit={handleSubmit}>
-          {error && <div className="bg-red-50 text-red-600 p-4 rounded-md">{error}</div>}
+          {error && (
+            <div className="bg-red-50 text-red-600 p-4 rounded-md flex items-center">
+              <svg className="h-5 w-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>{error}</span>
+            </div>
+          )}
           
           <div className="space-y-2">
             <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
-            <input
-              type="text"
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Enter article title"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-light"
-              required
-            />
+            <div className="relative">
+              <input
+                type="text"
+                id="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Enter article title"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-light"
+                required
+              />
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                </svg>
+              </div>
+            </div>
           </div>
           
           <div className="space-y-2">
             <label htmlFor="content" className="block text-sm font-medium text-gray-700">Content</label>
-            <div className="border border-gray-300 rounded-md" data-color-mode="light">
+            <div className="border border-gray-300 rounded-md overflow-hidden" data-color-mode="light">
               <MDEditor
                 value={content}
                 onChange={setContent}
@@ -220,8 +245,13 @@ const ArticleForm = ({ onArticleSubmitted }) => {
                 enableScroll={true}
               />
             </div>
-            <div className="mt-4 p-4 bg-gray-50 rounded-md text-sm text-gray-600">
-              <p className="font-medium mb-2">Markdown formatting supported:</p>
+            <div className="mt-4 p-4 bg-gray-50 rounded-md text-sm text-gray-600 border border-gray-200">
+              <div className="flex items-center mb-2">
+                <svg className="h-5 w-5 mr-2 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <p className="font-medium">Markdown formatting supported:</p>
+              </div>
               <ul className="space-y-1 list-disc pl-5">
                 <li><code className="bg-gray-100 px-1 rounded"># Heading 1</code>, <code className="bg-gray-100 px-1 rounded">## Heading 2</code></li>
                 <li><code className="bg-gray-100 px-1 rounded">**bold**</code>, <code className="bg-gray-100 px-1 rounded">*italic*</code></li>
@@ -234,8 +264,11 @@ const ArticleForm = ({ onArticleSubmitted }) => {
           
           <button 
             type="submit" 
-            className="w-full py-3 px-4 bg-primary-dark hover:bg-primary-darker text-white font-medium rounded-md transition-colors duration-200 shadow-sm"
+            className="w-full py-3 px-4 bg-primary-dark hover:bg-primary-darker text-white font-medium rounded-md transition-colors duration-200 shadow-sm flex items-center justify-center"
           >
+            <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
             Submit Article
           </button>
         </form>
@@ -246,7 +279,7 @@ const ArticleForm = ({ onArticleSubmitted }) => {
           {(status === 'verified' || status === 'failed') && (
             <div className="flex justify-center mt-4">
               <button 
-                className="px-6 py-2 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors duration-200"
+                className="px-6 py-2 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors duration-200 flex items-center"
                 onClick={() => {
                   setStatus('idle');
                   setTitle('');
@@ -256,6 +289,9 @@ const ArticleForm = ({ onArticleSubmitted }) => {
                   setError('');
                 }}
               >
+                <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
                 Submit Another Article
               </button>
             </div>

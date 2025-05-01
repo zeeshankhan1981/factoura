@@ -113,11 +113,29 @@ const Dashboard = () => {
   const renderMyStoriesTab = () => {
     return (
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-gray-800">My Stories</h2>
-        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+        <div className="flex items-center mb-2">
+          <svg className="h-6 w-6 mr-3 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          <h2 className="text-2xl font-bold text-gray-800">My Stories</h2>
+        </div>
+        
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8 hover:shadow-lg transition-shadow duration-200">
           <ArticleForm />
         </div>
-        {renderArticles(true)}
+        
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-6">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold text-gray-800">Your Published Stories</h3>
+            <div className="flex items-center">
+              <svg className="h-5 w-5 mr-1 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"></path>
+              </svg>
+              <span className="text-sm text-gray-500">Sort by newest</span>
+            </div>
+          </div>
+          {renderArticles(true)}
+        </div>
       </div>
     );
   };
@@ -131,25 +149,55 @@ const Dashboard = () => {
           verify information, and build transparency through blockchain verification.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-3 text-gray-800">Open Investigations</h3>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
+            <div className="flex items-center mb-4">
+              <div className="p-2 bg-primary-lighter rounded-full mr-3">
+                <svg className="h-6 w-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800">Open Investigations</h3>
+            </div>
             <p className="text-gray-600 mb-4">Browse active investigations that need additional contributors and sources.</p>
-            <button className="px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-darker transition-colors duration-200">
-              View Investigations
+            <button className="w-full px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-darker transition-colors duration-200 flex items-center justify-center">
+              <span>View Investigations</span>
+              <svg className="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
             </button>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-3 text-gray-800">Verify Information</h3>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
+            <div className="flex items-center mb-4">
+              <div className="p-2 bg-primary-lighter rounded-full mr-3">
+                <svg className="h-6 w-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800">Verify Information</h3>
+            </div>
             <p className="text-gray-600 mb-4">Help verify stories by providing additional evidence or cross-checking facts.</p>
-            <button className="px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-darker transition-colors duration-200">
-              Start Verifying
+            <button className="w-full px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-darker transition-colors duration-200 flex items-center justify-center">
+              <span>Start Verifying</span>
+              <svg className="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
             </button>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-3 text-gray-800">Propose Investigation</h3>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
+            <div className="flex items-center mb-4">
+              <div className="p-2 bg-primary-lighter rounded-full mr-3">
+                <svg className="h-6 w-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800">Propose Investigation</h3>
+            </div>
             <p className="text-gray-600 mb-4">Suggest a new topic that requires collaborative journalism to uncover.</p>
-            <button className="px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-darker transition-colors duration-200">
-              Submit Proposal
+            <button className="w-full px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-darker transition-colors duration-200 flex items-center justify-center">
+              <span>Submit Proposal</span>
+              <svg className="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
             </button>
           </div>
         </div>
@@ -165,7 +213,18 @@ const Dashboard = () => {
           All verified stories on factoura are registered on the Polygon PoS blockchain for permanent, 
           tamper-proof record-keeping. Track verification status and blockchain records here.
         </p>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
+          <div className="px-6 py-4 border-b border-gray-200">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-semibold text-gray-800">Verified Stories</h3>
+              <div className="flex items-center text-sm text-gray-500">
+                <svg className="h-5 w-5 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Last updated: {new Date().toLocaleDateString()}</span>
+              </div>
+            </div>
+          </div>
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
@@ -180,9 +239,16 @@ const Dashboard = () => {
                 {articles
                   .filter(article => article.verificationStatus === 'verified')
                   .map((article, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{article.title}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                    <tr key={index} className={index % 2 === 0 ? 'bg-white hover:bg-gray-50' : 'bg-gray-50 hover:bg-gray-100'}>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center">
+                          <div className="ml-4">
+                            <div className="text-sm font-medium text-gray-900">{article.title}</div>
+                            <div className="text-sm text-gray-500">By {article.authorName}</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                           Verified
                         </span>
@@ -193,6 +259,14 @@ const Dashboard = () => {
                   ))}
               </tbody>
             </table>
+          </div>
+          <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+            <button className="px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-darker transition-colors duration-200 text-sm flex items-center">
+              <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+              Export Verification Records
+            </button>
           </div>
         </div>
       </div>
@@ -337,7 +411,7 @@ const Dashboard = () => {
                     : 'hover:bg-primary-dark transition-colors duration-200'}`}
                 >
                   <svg className="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   Collaborate
                 </button>
@@ -350,7 +424,7 @@ const Dashboard = () => {
                     : 'hover:bg-primary-dark transition-colors duration-200'}`}
                 >
                   <svg className="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   Blockchain
                 </button>
