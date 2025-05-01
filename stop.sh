@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Factoura Stop Script
+# factoura Stop Script
 # This script stops all services started by the start.sh script
 
-echo "Stopping Factoura services..."
+echo "Stopping factoura services..."
 
 # Directory paths
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -72,7 +72,7 @@ fi
 echo "Performing additional cleanup for any remaining processes..."
 
 # Kill by process name patterns
-echo "Cleaning up any remaining Node.js processes related to Factoura..."
+echo "Cleaning up any remaining Node.js processes related to factoura..."
 pkill -f "node.*backend/node_modules/.bin/nodemon" 2>/dev/null
 pkill -f "node.*frontend/node_modules/.bin/react-scripts" 2>/dev/null
 pkill -f "npm run dev" 2>/dev/null
@@ -86,7 +86,7 @@ pkill -9 -f "npm run dev" 2>/dev/null
 pkill -9 -f "npm start" 2>/dev/null
 
 # Kill Node.js processes on the typical ports, being careful not to kill browser processes
-echo "Killing any Node.js processes using Factoura ports..."
+echo "Killing any Node.js processes using factoura ports..."
 for PORT in 3000 3001 3002 3003 5001 5002; do
   # Get PIDs but filter to only include node processes more strictly
   PORT_PIDS=$(lsof -t -i:$PORT 2>/dev/null)
@@ -109,7 +109,7 @@ for PORT in 3000 3001 3002 3003 5001 5002; do
   fi
 done
 
-echo "Killing any Python processes related to Factoura..."
+echo "Killing any Python processes related to factoura..."
 pkill -f "python.*uvicorn app:app" 2>/dev/null
 sleep 1
 pkill -9 -f "python.*uvicorn app:app" 2>/dev/null
@@ -119,5 +119,5 @@ pkill -f "ollama serve" 2>/dev/null
 sleep 1
 pkill -9 -f "ollama serve" 2>/dev/null
 
-echo "All Factoura services have been stopped"
+echo "All factoura services have been stopped"
 echo "If you want to stop PostgreSQL as well, run: brew services stop postgresql@15"

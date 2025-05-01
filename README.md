@@ -2,6 +2,8 @@
 
 **Digital Journalism on the Blockchain**
 
+> **Note on Branding:** The name of this application is always spelled with a lowercase "f" as "factoura." and never capitalized as "Factoura", even at the beginning of sentences.
+
 factoura. is a modern platform that combines collaborative journalism with blockchain verification to create a transparent and trustworthy news ecosystem.
 
 ## Table of Contents

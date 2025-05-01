@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Factoura Start Script
-# This script starts all the necessary services for the Factoura application
+# factoura Start Script
+# This script starts all the necessary services for the factoura application
 
-echo "Starting Factoura services..."
+echo "Starting factoura services..."
 
 # Directory paths
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -105,7 +105,7 @@ else
   echo "Python content analysis directory not found, skipping..."
 fi
 
-echo "All Factoura services started successfully!"
+echo "All factoura services started successfully!"
 echo "Logs are available in the following files:"
 echo "- Backend: $BASE_DIR/backend.log (http://localhost:$BACKEND_PORT)"
 echo "- Frontend: $BASE_DIR/frontend.log (http://localhost:$FRONTEND_PORT)"
