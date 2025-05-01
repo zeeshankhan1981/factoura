@@ -1,7 +1,8 @@
 import express from 'express';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import prisma from '../prismaClient.js';
+import logger from '../utils/logger.js';
+import databaseService from '../services/databaseService.js';
 import { sendWelcomeEmail } from '../services/emailService.js';
 
 const router = express.Router();
@@ -11,28 +12,20 @@ router.post('/signup', async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // Validate input
-    if (!username || !email || !password) {
-      return res.status(400).json({ message: 'All fields are required' });
-    }
-
-    // Check if username or email already exists
-    const existingUser = await prisma.user.findFirst({
+    // Check if user already exists
+    const existingUser = await databaseService.prisma.user.findFirst({
       where: {
         OR: [
-          { username },
-          { email }
+          { email },
+          { username }
         ]
       }
     });
 
     if (existingUser) {
-      if (existingUser.username === username) {
-        return res.status(400).json({ message: 'Username already taken' });
-      }
-      if (existingUser.email === email) {
-        return res.status(400).json({ message: 'Email already registered' });
-      }
+      return res.status(400).json({
+        error: 'User with this email or username already exists'
+      });
     }
 
     // Hash password
@@ -40,17 +33,18 @@ router.post('/signup', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create user
-    const user = await prisma.user.create({
+    const user = await databaseService.prisma.user.create({
       data: {
         username,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        role: 'user'
       }
     });
 
     // Generate JWT token
     const token = jwt.sign(
-      { userId: user.id, username: user.username },
+      { id: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: '24h' }
     );
@@ -61,20 +55,18 @@ router.post('/signup', async (req, res) => {
       // We don't return this error to the client as the signup was successful
     });
 
-    // Return success with token
     res.status(201).json({
-      message: 'User created successfully',
       token,
       user: {
         id: user.id,
+        email: user.email,
         username: user.username,
-        email: user.email
+        role: user.role
       }
     });
-
   } catch (error) {
-    console.error('Signup error:', error);
-    res.status(500).json({ message: 'Error creating user account' });
+    logger.error('Signup error:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
@@ -83,47 +75,40 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validate input
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password are required' });
-    }
-
     // Find user by email
-    const user = await prisma.user.findUnique({
+    const user = await databaseService.prisma.user.findUnique({
       where: { email }
     });
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+      return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    // Verify password
-    const isValidPassword = await bcrypt.compare(password, user.password);
-    if (!isValidPassword) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+    // Check password
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+      return res.status(401).json({ error: 'Invalid email or password' });
     }
 
     // Generate JWT token
     const token = jwt.sign(
-      { userId: user.id, username: user.username },
+      { id: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: '24h' }
     );
 
-    // Return success with token
     res.json({
-      message: 'Login successful',
       token,
       user: {
         id: user.id,
+        email: user.email,
         username: user.username,
-        email: user.email
+        role: user.role
       }
     });
-
   } catch (error) {
-    console.error('Login error:', error);
-    res.status(500).json({ message: 'Error logging in' });
+    logger.error('Login error:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

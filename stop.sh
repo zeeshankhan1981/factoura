@@ -88,16 +88,22 @@ pkill -9 -f "npm start" 2>/dev/null
 # Kill Node.js processes on the typical ports, being careful not to kill browser processes
 echo "Killing any Node.js processes using Factoura ports..."
 for PORT in 3000 3001 3002 3003 5001 5002; do
-  # Get PIDs but filter to only include node processes
-  PORT_PIDS=$(lsof -t -i:$PORT 2>/dev/null | xargs -I{} ps -p {} -o comm= | grep -E "^node$" | xargs -I{} lsof -t -i:$PORT 2>/dev/null)
+  # Get PIDs but filter to only include node processes more strictly
+  PORT_PIDS=$(lsof -t -i:$PORT 2>/dev/null)
   if [ ! -z "$PORT_PIDS" ]; then
-    echo "Found Node.js processes on port $PORT, stopping them..."
-    kill -15 $PORT_PIDS 2>/dev/null
-    sleep 1
-    # Double-check these are definitely Node processes before force killing
     for PID in $PORT_PIDS; do
-      if ps -p $PID -o comm= | grep -q "^node$"; then
-        kill -9 $PID 2>/dev/null
+      # Check if it's a Node.js process before attempting to kill
+      PROCESS_NAME=$(ps -p $PID -o comm= 2>/dev/null)
+      if [[ "$PROCESS_NAME" == *"node"* ]]; then
+        echo "Found Node.js process on port $PORT (PID: $PID), stopping it..."
+        kill -15 $PID 2>/dev/null
+        sleep 1
+        # Double-check it's still a Node process before force killing
+        if ps -p $PID -o comm= 2>/dev/null | grep -q "node"; then
+          kill -9 $PID 2>/dev/null
+        fi
+      else
+        echo "Process on port $PORT (PID: $PID) is $PROCESS_NAME, not Node.js. Will not kill."
       fi
     done
   fi

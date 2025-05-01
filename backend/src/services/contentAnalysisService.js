@@ -4,86 +4,98 @@
  */
 
 import axios from 'axios';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const CONTENT_ANALYSIS_SERVICE_URL = process.env.CONTENT_ANALYSIS_SERVICE_URL || 'http://localhost:5002';
+import logger from '../utils/logger.js';
+import databaseService from './databaseService.js';
 
 class ContentAnalysisService {
   constructor() {
-    this.serviceUrl = CONTENT_ANALYSIS_SERVICE_URL;
-    this.isServiceAvailable = true;
-    
-    // Check if the service is available
-    this.checkServiceAvailability();
+    this.baseUrl = process.env.CONTENT_ANALYSIS_SERVICE_URL || 'http://localhost:5002';
   }
 
-  async checkServiceAvailability() {
+  async analyzeSentiment(content, articleId = null) {
     try {
-      const response = await axios.get(`${this.serviceUrl}/`);
-      this.isServiceAvailable = response.status === 200;
-      console.log(`factoura. Content Analysis Service is ${this.isServiceAvailable ? 'available' : 'unavailable'}`);
+      const response = await axios.post(`${this.baseUrl}/analyze/sentiment`, {
+        text: content
+      });
+
+      if (articleId) {
+        await databaseService.updateArticleAnalysis(articleId, {
+          sentimentScore: response.data.overall_sentiment.compound_score,
+          emotionalTone: response.data.emotional_tone,
+          objectivityScore: response.data.objectivity_score
+        });
+
+        await databaseService.logAnalysis(
+          articleId,
+          'content_analysis',
+          'success',
+          response.data
+        );
+      }
+
+      return response.data;
     } catch (error) {
-      this.isServiceAvailable = false;
-      console.error('factoura. Content Analysis Service is unavailable:', error.message);
+      logger.error('Sentiment analysis error:', error);
+      
+      if (articleId) {
+        await databaseService.logAnalysis(
+          articleId,
+          'content_analysis',
+          'error',
+          null,
+          error.message
+        );
+      }
+
+      throw new Error('Failed to analyze sentiment');
+    }
+  }
+
+  async generateTags(content, articleId = null) {
+    try {
+      const response = await axios.post(`${this.baseUrl}/generate-tags`, {
+        text: content
+      });
+
+      if (articleId) {
+        const tags = response.data.suggested_tags.map(tag => tag.tag);
+        await databaseService.updateArticleAnalysis(articleId, {
+          tags: tags
+        });
+
+        await databaseService.logAnalysis(
+          articleId,
+          'content_analysis',
+          'success',
+          response.data
+        );
+      }
+
+      return response.data;
+    } catch (error) {
+      logger.error('Tag generation error:', error);
+      
+      if (articleId) {
+        await databaseService.logAnalysis(
+          articleId,
+          'content_analysis',
+          'error',
+          null,
+          error.message
+        );
+      }
+
+      throw new Error('Failed to generate tags');
     }
   }
 
   async checkHealth() {
     try {
-      const response = await axios.get(`${this.serviceUrl}/health`);
-      return {
-        status: 'available',
-        pythonService: response.data,
-        serviceUrl: this.serviceUrl
-      };
-    } catch (error) {
-      console.error('Error checking Python service health:', error.message);
-      return {
-        status: 'unavailable',
-        error: error.message,
-        serviceUrl: this.serviceUrl
-      };
-    }
-  }
-
-  async analyzeSentiment(text, title = null) {
-    if (!this.isServiceAvailable) {
-      console.warn('factoura. Content Analysis Service is unavailable. Skipping sentiment analysis.');
-      return null;
-    }
-
-    try {
-      const response = await axios.post(`${this.serviceUrl}/analyze/sentiment`, {
-        text,
-        title,
-        options: {}
-      });
+      const response = await axios.get(`${this.baseUrl}/health`);
       return response.data;
     } catch (error) {
-      console.error('Error analyzing sentiment:', error.message);
-      return null;
-    }
-  }
-
-  async generateTags(text, title = null, existingTags = [], maxTags = 10) {
-    if (!this.isServiceAvailable) {
-      console.warn('factoura. Content Analysis Service is unavailable. Skipping tag generation.');
-      return null;
-    }
-
-    try {
-      const response = await axios.post(`${this.serviceUrl}/generate-tags`, {
-        text,
-        title,
-        existing_tags: existingTags,
-        max_tags: maxTags
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error generating tags:', error.message);
-      return null;
+      logger.error('Content analysis service health check failed:', error);
+      return { status: 'unavailable' };
     }
   }
 }

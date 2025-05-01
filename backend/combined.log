@@ -1,0 +1,167 @@
+{"level":"info","message":"Starting database migration...","timestamp":"2025-05-01T17:02:47.889Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2025-05-01T17:02:48.154Z"}
+{"level":"info","message":"Applying migrations...","timestamp":"2025-05-01T17:02:48.154Z"}
+{"clientVersion":"6.5.0","code":"P2010","level":"error","message":"Migration failed: \nInvalid `prisma.$executeRawUnsafe()` invocation:\n\n\nRaw query failed. Code: `42601`. Message: `ERROR: cannot insert multiple commands into a prepared statement`","meta":{"code":"42601","message":"ERROR: cannot insert multiple commands into a prepared statement"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$executeRawUnsafe()` invocation:\n\n\nRaw query failed. Code: `42601`. Message: `ERROR: cannot insert multiple commands into a prepared statement`\n    at Wn.handleRequestError (/Users/zeeshankhan/Factoura/backend/node_modules/@prisma/client/runtime/library.js:121:7534)\n    at Wn.handleAndLogRequestError (/Users/zeeshankhan/Factoura/backend/node_modules/@prisma/client/runtime/library.js:121:6858)\n    at Wn.request (/Users/zeeshankhan/Factoura/backend/node_modules/@prisma/client/runtime/library.js:121:6565)\n    at async l (/Users/zeeshankhan/Factoura/backend/node_modules/@prisma/client/runtime/library.js:130:10067)\n    at async main (file:///Users/zeeshankhan/Factoura/backend/scripts/migrate.js:16:9)","timestamp":"2025-05-01T17:02:48.159Z"}
+{"level":"info","message":"Starting database migration...","timestamp":"2025-05-01T17:03:23.174Z"}
+{"level":"info","message":"Database connection successful","timestamp":"2025-05-01T17:03:23.208Z"}
+{"level":"info","message":"Applying migrations...","timestamp":"2025-05-01T17:03:23.208Z"}
+{"level":"info","message":"Migrations applied successfully","timestamp":"2025-05-01T17:03:23.241Z"}
+{"level":"info","message":"Creating indexes...","timestamp":"2025-05-01T17:03:23.241Z"}
+{"level":"info","message":"Indexes created successfully","timestamp":"2025-05-01T17:03:23.248Z"}
+{"level":"info","message":"Migration completed successfully","timestamp":"2025-05-01T17:03:23.254Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:44.480Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:44.481Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:44.480Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:44.481Z"}
+{"level":"info","message":"Server is running on port 5001","timestamp":"2025-05-01T18:28:44.483Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:50.907Z"}
+{"level":"info","message":"Server is running on port 5001","timestamp":"2025-05-01T18:28:50.911Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:50.910Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:50.916Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:50.931Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:57.951Z"}
+{"level":"info","message":"Server is running on port 5001","timestamp":"2025-05-01T18:28:57.954Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:57.962Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:57.964Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:57.968Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:59.262Z"}
+{"level":"info","message":"Server is running on port 5001","timestamp":"2025-05-01T18:28:59.265Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:59.280Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:59.289Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:28:59.303Z"}
+{"level":"info","message":"POST /api/users/login","timestamp":"2025-05-01T18:29:41.759Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:29:41.873Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:29:41.874Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:29:41.879Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:29:41.880Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:29:41.890Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:29:41.890Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:29:41.892Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:29:41.892Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:29:41.894Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:29:41.895Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:29:41.895Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:29:41.895Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:29:41.896Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:29:41.897Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:29:41.897Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:29:41.897Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:29:41.897Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:29:41.898Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:29:41.898Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:29:41.898Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:29:41.898Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:29:41.898Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:29:41.899Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:29:41.899Z"}
+{"level":"info","message":"Server is running on port 5001","timestamp":"2025-05-01T18:30:13.849Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:30:13.855Z"}
+{"level":"info","message":"Server is running on port 5001","timestamp":"2025-05-01T18:33:33.771Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:33:33.775Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:33:39.059Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:33:39.063Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:33:39.068Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:33:39.074Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:39.087Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:39.088Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:39.089Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:39.091Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:39.094Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:39.095Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:39.096Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:39.097Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:39.097Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:39.097Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:39.097Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:39.097Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:39.098Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:39.098Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:39.099Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:39.099Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:39.099Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:39.099Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:39.100Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:39.100Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:33:40.097Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:33:40.099Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:33:40.099Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:33:40.100Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:40.108Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:40.108Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:40.109Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:40.110Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:40.110Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:40.111Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:40.111Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:40.111Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:40.113Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:40.113Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:40.114Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:40.114Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:40.114Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:40.114Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:40.119Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:40.119Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:40.120Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:33:40.120Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:33:40.121Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:33:40.121Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:33:40.123Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:33:40.124Z"}
+{"level":"info","message":"Server is running on port 5001","timestamp":"2025-05-01T18:53:24.299Z"}
+{"level":"warn","message":"Optional services not available:","timestamp":"2025-05-01T18:53:24.303Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:53:27.999Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:53:28.016Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:53:35.805Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:53:35.811Z"}
+{"level":"info","message":"POST /api/users/login","timestamp":"2025-05-01T18:53:49.337Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:53:49.396Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:53:49.397Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:53:49.399Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:53:49.400Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:49.401Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:49.402Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:49.403Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:49.404Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:49.405Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:49.405Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:49.406Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:49.406Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:49.407Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:49.407Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:49.407Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:49.407Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:49.408Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:49.408Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:49.409Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:49.409Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:49.409Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:49.409Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:49.410Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:49.410Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:53:54.470Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:53:54.471Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:53:54.473Z"}
+{"level":"info","message":"GET /api/articles","timestamp":"2025-05-01T18:53:54.474Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:54.481Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:54.481Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:54.483Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:54.484Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:54.484Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:54.485Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:54.486Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:54.486Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:54.487Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:54.487Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:54.487Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:54.487Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:54.490Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:54.490Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:54.491Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:54.491Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:54.491Z"}
+{"level":"info","message":"GET /api/users/2","timestamp":"2025-05-01T18:53:54.491Z"}
+{"level":"info","message":"GET /api/users/3","timestamp":"2025-05-01T18:53:54.493Z"}
+{"level":"info","message":"GET /api/users/1","timestamp":"2025-05-01T18:53:54.493Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:53:54.494Z"}
+{"level":"info","message":"GET /api/users/me","timestamp":"2025-05-01T18:53:54.496Z"}

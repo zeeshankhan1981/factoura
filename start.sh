@@ -62,13 +62,20 @@ sleep 2
 echo "Checking frontend port $FRONTEND_PORT availability..."
 PORT_PID=$(lsof -t -i:$FRONTEND_PORT 2>/dev/null)
 if [ ! -z "$PORT_PID" ]; then
-  echo "Port $FRONTEND_PORT is in use by PID $PORT_PID, attempting to kill..."
-  kill -15 $PORT_PID 2>/dev/null
-  sleep 1
-  if lsof -i :$FRONTEND_PORT > /dev/null 2>&1; then
-    echo "Process still running, force killing..."
-    kill -9 $PORT_PID 2>/dev/null
+  # Only kill Node.js processes, not Firefox
+  PROCESS_NAME=$(ps -p $PORT_PID -o comm= 2>/dev/null)
+  if [[ "$PROCESS_NAME" == *"node"* ]]; then
+    echo "Node.js process on port $FRONTEND_PORT with PID $PORT_PID, attempting to kill..."
+    kill -15 $PORT_PID 2>/dev/null
     sleep 1
+    if lsof -i :$FRONTEND_PORT > /dev/null 2>&1; then
+      echo "Process still running, force killing..."
+      kill -9 $PORT_PID 2>/dev/null
+      sleep 1
+    fi
+  else
+    echo "Warning: Port $FRONTEND_PORT is in use by $PROCESS_NAME (PID: $PORT_PID), which is not a Node.js process. Will not kill."
+    echo "Frontend may fail to start or use a different port."
   fi
 fi
 
