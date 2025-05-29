@@ -12,7 +12,8 @@
     "test": "jest",
     "migrate": "node scripts/migrate.js",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev"
+    "prisma:migrate": "prisma migrate dev",
+    "vercel-build": "echo 'No build step needed'"
   },
   "dependencies": {
     "@prisma/client": "^6.5.0",
