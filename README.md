@@ -4,7 +4,32 @@
 
 > **Note on Branding:** The name of this application is always spelled with a lowercase "f" as "factoura." and never capitalized as "Factoura", even at the beginning of sentences.
 
-factoura. is a modern platform that combines collaborative journalism with blockchain verification to create a transparent and trustworthy news ecosystem.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzeeshankhan1981%2Ffactoura)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+factoura. is a modern platform that combines collaborative journalism with blockchain verification to create a transparent and trustworthy news ecosystem. Built with a modern tech stack and designed for both local development and cloud deployment.
+
+## 🚀 Quick Start
+
+### Local Development
+```bash
+# Clone the repository
+git clone https://github.com/zeeshankhan1981/factoura.git
+cd factoura
+
+# Install dependencies
+cd backend && npm install
+cd ../frontend && npm install
+
+# Start development servers
+cd ..
+npm run dev
+```
+
+### Vercel Deployment
+1. Click the "Deploy with Vercel" button above
+2. Set up your environment variables (see Configuration section)
+3. Deploy!
 
 ## Table of Contents
 
@@ -24,179 +49,351 @@ factoura. is a modern platform that combines collaborative journalism with block
 
 factoura. enables journalists, fact-checkers, and readers to collaborate on verifying news stories. All verified content is secured on the Polygon PoS blockchain, creating permanent, tamper-proof records of journalistic work.
 
-## Features
+## ✨ Features
 
+### Core Functionality
 - **User Authentication**: Secure signup and login with JWT authentication
-- **Article Management**: Create, read, update, and delete articles
-- **Dashboard**: User-friendly interface to manage articles and see verification status
-- **Blockchain Integration**: Verified stories are secured on Polygon PoS
-- **Responsive Design**: Modern UI with powder blue color scheme that works on all devices
-- **Content Analysis**: AI-powered sentiment analysis and tag suggestions using Python
-- **User Profiles**: View and manage your profile and published stories
-- **Sentiment Analysis**: Analyze the emotional tone and objectivity of articles
-- **Intelligent Tagging**: Generate relevant tags for articles based on content
-- **Article Quality Assessment**: Evaluate content quality and readability
+- **Article Management**: Full CRUD operations for articles with rich text editing
+- **Blockchain Verification**: Content hashing and verification on Polygon PoS
+- **Real-time Updates**: WebSocket integration for live content updates
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
 
-## Technology Stack
+### Advanced Features
+- **AI Content Analysis**: Sentiment analysis and content scoring
+- **Automated Tagging**: AI-powered tag suggestions
+- **Version History**: Track changes to articles over time
+- **Role-based Access**: Different permission levels for users, editors, and admins
+- **API-First Design**: Fully documented RESTful API
 
-### Frontend
-- React.js
-- React Router for navigation
-- Axios for API requests
-- CSS with custom variables for theming
+### Blockchain Integration
+- **Immutable Records**: Article hashes stored on Polygon PoS
+- **Smart Contracts**: Custom contracts for content verification
+- **Wallet Integration**: MetaMask support for blockchain interactions
+- **Gasless Transactions**: Layer 2 solutions for cost-effective operations
 
-### Backend
-- Node.js
-- Express.js
-- PostgreSQL database
-- Prisma ORM
-- JWT for authentication
+## 🛠 Technology Stack
 
-### Blockchain
-- Polygon PoS for storing verified article hashes
+### Frontend (React 18+)
+- **Framework**: React 18 with Hooks
+- **State Management**: Context API + useReducer
+- **Styling**: Tailwind CSS with custom theming
+- **Routing**: React Router v6
+- **HTTP Client**: Axios with interceptors
+- **Form Handling**: React Hook Form
+- **UI Components**: Headless UI + custom components
+- **Data Visualization**: Recharts
 
-### AI & Analysis
-- Python 3.9+
-- FastAPI for microservices
-- NLTK and SpaCy for natural language processing
-- TextBlob for sentiment analysis
+### Backend (Node.js + Express)
+- **Runtime**: Node.js 18+
+- **Framework**: Express.js
+- **Database**: PostgreSQL with Prisma ORM
+- **Authentication**: JWT + bcrypt
+- **API Documentation**: OpenAPI/Swagger
+- **Validation**: Joi
+- **Logging**: Winston + Morgan
+- **Testing**: Jest + Supertest
 
-## Project Structure
+### Blockchain (Polygon PoS)
+- **Network**: Polygon Mainnet & Mumbai Testnet
+- **Smart Contracts**: Solidity (0.8.x)
+- **Web3 Library**: ethers.js
+- **Wallet Integration**: Web3Modal
+
+### AI Services (Python)
+- **Framework**: FastAPI
+- **NLP**: spaCy + NLTK
+- **Sentiment Analysis**: TextBlob + custom models
+- **Deployment**: Docker + Kubernetes
+
+### DevOps
+- **CI/CD**: GitHub Actions
+- **Containerization**: Docker
+- **Orchestration**: Docker Compose
+- **Monitoring**: Prometheus + Grafana
+- **Logging**: ELK Stack
+
+## 📁 Project Structure
 
 ```
-factoura_app/
-├── backend/                # Backend Node.js application
-│   ├── prisma/             # Prisma schema and migrations
+factoura/
+├── backend/                  # Node.js + Express backend
+│   ├── prisma/               # Database schema and migrations
 │   ├── src/
-│   │   ├── routes/         # API route definitions
-│   │   │   ├── analysisRoutes.js  # Routes for content analysis
-│   │   │   └── ...         # Other route files
-│   │   ├── controllers/    # Request handlers
-│   │   ├── middleware/     # Express middleware
-│   │   ├── services/       # Business logic
-│   │   │   ├── contentAnalysisService.js  # Service for Python integration
-│   │   │   └── ...         # Other service files
-│   │   ├── utils/          # Utility functions
-│   │   └── app.js          # Express application setup (also serves frontend build)
-│   └── package.json        # Backend dependencies
-├── frontend/               # React frontend application
-│   ├── public/             # Static assets
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   │   ├── ArticleAnalysis.js  # Component for content analysis
-│   │   │   └── ...         # Other component files
-│   │   ├── pages/          # Page components
-│   │   ├── styles/         # Global styles and variables
-│   │   ├── utils/          # Utility functions
-│   │   ├── App.js          # Main application component
-│   │   └── index.js        # Application entry point
-│   └── package.json        # Frontend dependencies
-│   └── build/              # Production build (served by backend)
-├── python_services/        # Python microservices for content analysis
-│   ├── content_analysis/   # Content analysis service
-│   │   ├── app.py          # FastAPI application setup
-│   │   ├── Dockerfile      # Docker configuration
-│   │   └── requirements.txt # Python dependencies
-├── docker-compose.yml      # Docker Compose configuration
-├── start-services.sh       # Script to start all services
-└── README.md               # Project documentation
+│   │   ├── config/          # Configuration files
+│   │   ├── controllers/      # Route controllers
+│   │   ├── middleware/       # Express middleware
+│   │   ├── models/           # Database models
+│   │   ├── routes/           # API routes
+│   │   ├── services/         # Business logic
+│   │   └── utils/            # Helper functions
+│   └── package.json
+│
+├── frontend/                # React frontend
+│   ├── public/              # Static assets
+│   └── src/
+│       ├── assets/         # Images, fonts, etc.
+│       ├── components/      # Reusable UI components
+│       ├── contexts/        # React contexts
+│       ├── hooks/           # Custom React hooks
+│       ├── pages/           # Page components
+│       ├── services/        # API services
+│       └── styles/          # Global styles
+│
+├── contracts/              # Smart contracts
+│   ├── artifacts/           # Compiled contracts
+│   ├── migrations/          # Migration scripts
+│   └── test/               # Contract tests
+│
+├── python_services/        # AI/ML services
+│   └── content_analysis/    # NLP and content analysis
+│
+├── .github/                # GitHub workflows
+├── .env.example            # Environment variables template
+├── docker-compose.yml      # Local development
+└── package.json           # Root scripts
+
 ```
 
-## Installation
+## 🛠 Installation
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- PostgreSQL (v12 or higher)
+- Node.js 18+ (LTS recommended)
+- PostgreSQL 14+
+- Python 3.9+
 - Git
-- Python 3.9+ (for content analysis)
-- Cryptocurrency Wallet (MetaMask recommended)
+- Yarn or npm
+- Docker (optional, for containerized development)
+- MetaMask (for blockchain features)
 
-### Authentication & Wallet Requirements
-factoura. uses a two-tier authentication system:
+### Environment Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/zeeshankhan1981/factoura.git
+   cd factoura
+   ```
 
-1. **Basic Authentication (Username/Password)**
-   - Required for accessing the platform
-   - Allows read-only features and basic interactions
-   - Managed through JWT tokens
+2. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
 
-2. **Blockchain Authentication (MetaMask)**
-   - Required for article submission and verification
-   - Necessary for all blockchain interactions
-   - Connected through the dashboard interface
-   - Displays wallet address and MATIC balance
+3. Update the `.env` file with your configuration (database, API keys, etc.)
 
-#### Setting Up Your Wallet
-1. Install MetaMask browser extension from the Chrome Web Store or Firefox Add-ons
-2. Create a new wallet or import an existing one
-3. Switch to the Polygon PoS network in MetaMask settings
-4. Add some MATIC tokens to your wallet (you can get test MATIC from the Polygon faucet if you're testing)
+### Database Setup
+1. Start PostgreSQL:
+   ```bash
+   # Using Homebrew (macOS)
+   brew services start postgresql
+   
+   # Or using Docker
+   docker run --name factoura-db -e POSTGRES_PASSWORD=yourpassword -p 5432:5432 -d postgres:14
+   ```
 
-#### Wallet Connection UI
-The wallet connection interface is located in the dashboard sidebar under the BLOCKCHAIN section. It provides:
-- A prominent "Connect MetaMask" button when not connected
-- Visual indicators of connection status
-- Wallet address display (truncated for privacy)
-- Current MATIC balance
-- Network status indicator
-- Disconnect option
+2. Create the database:
+   ```bash
+   createdb factoura_db
+   ```
 
-#### Versioning System
-Factoura uses GitHub tag-based versioning:
-- The current version is displayed at the bottom of the dashboard sidebar
-- Version numbers follow semantic versioning (e.g., v1.0.4)
-- Version is automatically updated via the `backend/scripts/update-version.sh` script when new tags are created
+3. Run migrations:
+   ```bash
+   cd backend
+   npx prisma migrate dev
+   ```
 
-### Clone the Repository
+### Development
+1. Install dependencies:
+   ```bash
+   # Install root dependencies
+   npm install
+   
+   # Install backend dependencies
+   cd backend && npm install
+   
+   # Install frontend dependencies
+   cd ../frontend && npm install
+   ```
+
+2. Start the development servers:
+   ```bash
+   # From project root
+   npm run dev
+   ```
+   This will start:
+   - Backend: http://localhost:5001
+   - Frontend: http://localhost:3000
+   - Python services: http://localhost:5002
+
+### Production Build
 ```bash
-git clone https://github.com/zeeshankhan1981/factoura_app.git
-cd factoura_app
-```
-
-### Backend Setup
-```bash
-cd backend
-npm install
-```
-
-### Frontend Setup
-```bash
+# Build frontend
 cd frontend
-npm install
+npm run build
+
+# Start production server
+cd ../backend
+npm start
 ```
 
-### Python Services Setup
-```bash
-cd python_services/content_analysis
-pip install -r requirements.txt
+## ⚙️ Configuration
 
-# Download required NLTK data
-python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet')"
+### Environment Variables
 
-# Download SpaCy model
-python -m spacy download en_core_web_sm
+#### Backend (`.env` in `backend/`)
+```env
+# App
+NODE_ENV=development
+PORT=5001
+
+# Database
+DATABASE_URL="postgresql://user:password@localhost:5432/factoura_db"
+
+# Authentication
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRES_IN=1d
+
+# Blockchain
+POLYGON_RPC_URL=https://rpc-amoy.polygon.technology
+PRIVATE_KEY=your_wallet_private_key
+CONTRACT_ADDRESS=your_contract_address
+
+# Content Analysis
+CONTENT_ANALYSIS_URL=http://localhost:5002
 ```
 
-Alternatively, if you're using a virtual environment (recommended):
+#### Frontend (`.env` in `frontend/`)
+```env
+REACT_APP_API_URL=http://localhost:5001
+REACT_APP_ENV=development
+REACT_APP_GOOGLE_ANALYTICS_ID=your_ga_id
+```
+
+### Blockchain Configuration
+
+1. **Network Setup**
+   - Mainnet: Polygon PoS
+   - Testnet: Amoy (recommended for development)
+
+2. **Required Tokens**
+   - Mainnet: MATIC tokens for gas fees
+   - Testnet: Get test MATIC from the [Polygon Faucet](https://faucet.polygon.technology/)
+
+3. **Smart Contracts**
+   - Deploy your contracts using Hardhat or Truffle
+   - Update contract addresses in the `.env` file
+
+## 🚀 Usage
+
+### Local Development
+
+#### Start Services
 ```bash
-# Create a Python virtual environment
-# Note: On the Thinkpad T16 laptop, this environment is named 'factoura_py_venv'
-# You can use any name that makes sense for your environment
-python -m venv factoura_py_venv
+# Start all services with Docker Compose
+docker-compose up -d
 
-# Activate the virtual environment
-source factoura_py_venv/bin/activate  # On Linux/macOS
-# or
-factoura_py_venv\Scripts\activate  # On Windows
+# Or start services individually
+npm run dev:backend
+npm run dev:frontend
+npm run dev:python
+```
 
-# Install dependencies
-cd python_services/content_analysis
-pip install -r requirements.txt
+#### Available Scripts
 
-# Download required NLTK data
-python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet')"
+**Root**
+```bash
+# Install all dependencies
+npm run install:all
 
-# Download SpaCy model
-python -m spacy download en_core_web_sm
+# Start all services in development mode
+npm run dev
+
+# Run tests
+npm test
+
+# Run linting
+npm run lint
+```
+
+**Backend**
+```bash
+# Run database migrations
+npm run db:migrate
+
+# Generate Prisma client
+npm run prisma:generate
+
+# Start development server with hot-reload
+npm run dev
+```
+
+**Frontend**
+```bash
+# Start development server
+npm start
+
+# Build for production
+npm run build
+
+# Run tests
+npm test
+```
+
+### Vercel Deployment
+
+1. **Frontend**
+   - Connect your GitHub repository to Vercel
+   - Set up environment variables
+   - Deploy!
+
+2. **Backend**
+   - Deploy as a serverless function
+   - Configure environment variables in Vercel
+   - Set up a database connection
+
+### Authentication
+
+1. **User Registration**
+   - Sign up with email/password
+   - Verify your email address
+   - Complete your profile
+
+2. **Wallet Connection**
+   - Click "Connect Wallet" in the header
+   - Select your preferred wallet (MetaMask recommended)
+   - Approve the connection
+
+3. **API Authentication**
+   - Include JWT token in `Authorization: Bearer <token>` header
+   - For protected routes, ensure valid token is provided
+
+### Common Tasks
+
+#### Create an Article
+1. Click "New Article" in the dashboard
+2. Enter article details and content
+3. Add tags and images
+4. Submit for verification
+
+#### Verify Content
+1. Navigate to the verification queue
+2. Review submitted articles
+3. Approve or reject with feedback
+
+#### View Analytics
+1. Go to the dashboard
+2. Check engagement metrics
+3. View content performance
+
+## 🔄 Versioning
+
+Factoura uses [Semantic Versioning](https://semver.org/). The current version can be found in `package.json`.
+
+To update the version:
+```bash
+# Update version in package.json
+npm version [major|minor|patch]
+
+# Push tags
+git push --tags
 ```
 
 ## Configuration
@@ -246,106 +443,91 @@ factoura. comes with several scripts to manage the services:
 
 - **stop-services.sh**: Stops all factoura. services
   ```bash
-  ./stop-services.sh
-  ```
-  This script:
-  - Kills processes using saved PIDs from `.factoura_pids` file
-  - Falls back to pattern matching to find and kill any remaining services
+ ## 📚 API Documentation
 
-- **restart-services.sh**: Restarts all factoura. services
-  ```bash
-  ./restart-services.sh
-  ```
-  This script:
-  - Stops all services using stop-services.sh
-  - Waits for processes to fully shut down
-  - Starts all services using start-services.sh
+### Interactive API Docs
+Access the interactive API documentation at:
+- Swagger UI: `http://localhost:5001/api-docs`
+- ReDoc: `http://localhost:5001/api-docs/redoc`
 
-### Accessing the Application
+### API Endpoints
 
-Once the services are running:
-- The main application is accessible at http://localhost:5001
-- The Python Content Analysis service API is accessible at http://localhost:5002
+#### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get current user
+- `POST /api/auth/refresh` - Refresh access token
+- `POST /api/auth/logout` - Logout user
 
-## API Documentation
+#### Articles
+- `GET /api/articles` - List all articles (paginated)
+- `POST /api/articles` - Create new article
+- `GET /api/articles/:id` - Get article by ID
+- `PUT /api/articles/:id` - Update article
+- `DELETE /api/articles/:id` - Delete article
+- `GET /api/articles/user/:userId` - Get user's articles
 
-### Authentication Endpoints
+#### Blockchain
+- `POST /api/blockchain/verify` - Verify content on blockchain
+- `GET /api/blockchain/status/:contentId` - Check verification status
+- `GET /api/blockchain/history/:wallet` - Get wallet transaction history
 
-- `POST /api/users/register` - Register a new user
-  - Request body: `{ name, email, password }`
-  - Response: `{ token }`
+#### Analysis
+- `POST /api/analyze/text` - Analyze text content
+- `GET /api/analyze/article/:id` - Get article analysis
+- `POST /api/analyze/batch` - Batch analyze multiple articles
 
-- `POST /api/users/login` - Login an existing user
-  - Request body: `{ email, password }`
-  - Response: `{ token }`
+## 🤝 Contributing
 
-### Article Endpoints
+We welcome contributions! Please follow these steps:
 
-- `GET /api/articles` - Get all articles
-  - Response: `[{ id, title, content, ... }]`
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit your changes**: `git commit -m 'Add some amazing feature'`
+4. **Push to the branch**: `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
 
-- `GET /api/articles/:id` - Get a specific article
-  - Response: `{ id, title, content, ... }`
+### Development Guidelines
 
-- `POST /api/articles` - Create a new article
-  - Request body: `{ title, content, ... }`
-  - Response: `{ id, title, content, ... }`
+- Follow the existing code style
+- Write clear commit messages
+- Add tests for new features
+- Update documentation as needed
+- Keep PRs focused and small
 
-- `PUT /api/articles/:id` - Update an article
-  - Request body: `{ title, content, ... }`
-  - Response: `{ id, title, content, ... }`
+### Code of Conduct
 
-- `DELETE /api/articles/:id` - Delete an article
-  - Response: `{ message: "Article deleted" }`
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
 
-### Content Analysis Endpoints
+## 📄 License
 
-- `POST /api/analysis/sentiment` - Analyze the sentiment of a piece of text
-  - Request body: `{ text, title }`
-  - Response: 
-    ```json
-    {
-      "overall_sentiment": {
-        "compound_score": 0.4588,
-        "positive": 0.182,
-        "negative": 0.0,
-        "neutral": 0.818
-      },
-      "emotional_tone": "Positive",
-      "emotional_intensity": 45.88,
-      "objectivity_score": 62.5
-    }
-    ```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- `POST /api/analysis/tags` - Generate tags for a piece of text
-  - Request body: `{ text, title, existing_tags, max_tags }`
-  - Response:
-    ```json
-    {
-      "suggested_tags": [
-        {"tag": "digital", "type": "keyword", "relevance": 0.6},
-        {"tag": "journalism", "type": "keyword", "relevance": 0.6}
-      ],
-      "categorized_tags": {
-        "entities": [...],
-        "keywords": [...]
-      }
-    }
-    ```
+## ❤️ Support
 
-## Recent Updates
+### Community Support
+- [GitHub Discussions](https://github.com/zeeshankhan1981/factoura/discussions) - Ask questions and share ideas
+- [GitHub Issues](https://github.com/zeeshankhan1981/factoura/issues) - Report bugs and request features
 
-### March 2025 Update
-- Added Python-based content analysis service for advanced text processing
-- Implemented sentiment analysis for articles to determine emotional tone
-- Added intelligent tag generation based on article content
-- Created ArticleAnalysis component in the frontend for visualizing analysis results
-- Updated article detail page to include sentiment analysis and tag suggestions
-- Added start-services.sh script for easier development workflow
-- Updated Docker configuration to include Python services
-- Added health check endpoints to both Python service and Node.js backend
-- Improved service integration with automatic readiness checks
-- Enhanced start-services.sh script with process management and database connectivity checks
+### Professional Support
+For enterprise support or custom development, please contact [support@factoura.xyz](mailto:support@factoura.xyz)
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ by the Factoura team
+- Special thanks to our contributors and beta testers
+- Powered by [Polygon](https://polygon.technology/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/)
+
+## 🌟 Stargazers
+
+[![Stargazers](https://git-lister.onrender.com/api/stars/zeeshankhan1981/factoura?theme=flat)](https://github.com/zeeshankhan1981/factoura/stargazers)
+
+---
+
+<div align="center">
+  <p>Made with ❤️ for decentralized journalism</p>
+  <p>© 2025 Factoura. All rights reserved.</p>
+</div>
 
 ### Health Check Endpoints
 
