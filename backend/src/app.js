@@ -1,10 +1,11 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
 import articleRoutes from './routes/articleRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import logger from './utils/logger.js';
-import dotenv from 'dotenv';
+import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 
 // Load environment variables
 dotenv.config();
@@ -27,9 +28,21 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Logging middleware
+// Enhanced request logging
 app.use((req, res, next) => {
-    logger.info(`${req.method} ${req.url}`);
+    const start = Date.now();
+    
+    res.on('finish', () => {
+        const duration = Date.now() - start;
+        logger.info(`${req.method} ${req.originalUrl}`, {
+            statusCode: res.statusCode,
+            duration: `${duration}ms`,
+            userAgent: req.get('user-agent'),
+            ip: req.ip,
+            timestamp: new Date().toISOString()
+        });
+    });
+    
     next();
 });
 
@@ -39,10 +52,16 @@ if (!process.env.JWT_SECRET) {
   process.exit(1);
 }
 
-// Routes
+// API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/articles', articleRoutes);
+
+// 404 handler for undefined routes
+app.use(notFoundHandler);
+
+// Global error handler
+app.use(errorHandler);
 
 // Load optional routes
 const loadOptionalRoutes = async () => {
